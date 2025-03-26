@@ -10,6 +10,7 @@ public class Controladora {
 
     public Controladora() {
         // Relacion con objeto del modelo
+        this.entrenadores = new Entrenador[2];
     }
 	
 	// Controladora: encargada de gestión de entidades del modelo

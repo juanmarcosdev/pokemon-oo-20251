@@ -66,7 +66,7 @@ public class Pokemon {
 
     // Método de ataque
     public int atacar() {
-        System.out.println(nombre + " está atacando con un poder de " + valorAtaque);
+        System.out.println(nombre + " esta atacando con un poder de " + valorAtaque);
         return valorAtaque;
     }
 }

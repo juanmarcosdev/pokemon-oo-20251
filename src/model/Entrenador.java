@@ -1,19 +1,19 @@
 package model;
 
 import model.Pokemon;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Entrenador {
     private String nombre;
     private int edad;
-    private Pokemon pokemon;
+    private List<Pokemon> pokemones;
 
-
-    public Entrenador(String nombre, int edad, Pokemon pokemon) {
+    public Entrenador(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
-        this.pokemon = pokemon;
+        this.pokemones = new ArrayList<>();
     }
-
 
     public String getNombre() {
         return nombre;
@@ -23,8 +23,8 @@ public class Entrenador {
         return edad;
     }
 
-    public Pokemon getPokemon() {
-        return pokemon;
+    public List<Pokemon> getPokemones() {
+        return pokemones;
     }
 
     public void setNombre(String nombre) {
@@ -35,16 +35,26 @@ public class Entrenador {
         this.edad = edad;
     }
 
-    public void setPokemon(Pokemon pokemon) {
-        this.pokemon = pokemon;
+    public void agregarPokemon(Pokemon pokemon) {
+        if (pokemon != null) {
+            pokemones.add(pokemon);
+        }
+    }
+
+    public void removerPokemon(Pokemon pokemon) {
+        pokemones.remove(pokemon);
     }
 
     // Mostrar información del entrenador
     public void mostrarInfo() {
         System.out.println("Entrenador: " + nombre + ", Edad: " + edad);
-        if (pokemon != null) {
-            System.out.println("Posee el Pokémon: ");
-            pokemon.mostrarInfo();
+        if (pokemones.isEmpty()) {
+            System.out.println("No posee ningún Pokémon.");
+        } else {
+            System.out.println("Posee los siguientes Pokémon:");
+            for (Pokemon p : pokemones) {
+                p.mostrarInfo();
+            }
         }
     }
 }
